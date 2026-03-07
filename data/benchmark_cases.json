@@ -1,0 +1,62 @@
+[
+  {
+    "query": "AORUS MASTER 16 支援哪些作業系統？",
+    "keywords": ["Windows 11 Pro", "Windows 11 Home", "UEFI Shell OS"],
+    "answer": "AORUS MASTER 16 支援三種作業系統：Windows 11 Pro（GIGABYTE 推薦商務使用）、Windows 11 Home、以及 UEFI Shell OS。",
+    "type": "shared_spec"
+  },
+  {
+    "query": "BYH 的顯示記憶體是什麼類型？有多少 GB?AI Boost 頻率是多少？",
+    "keywords": ["GDDR7", "1902", "16"],
+    "answer": "AORUS MASTER 16 BYH 搭載 RTX 5080 Laptop GPU，顯示記憶體為 16GB GDDR7，AI Boost 頻率為 1902MHz（Boost Clock 1702MHz + OC 200MHz）。",
+    "type": "single_product"
+  },
+  {
+    "query": "這台筆電最大支援多少 RAM？記憶體規格為何？",
+    "keywords": ["64GB", "DDR5", "5600", "SO-DIMM"],
+    "answer": "AORUS MASTER 16 最大支援 64GB DDR5 5600MHz 記憶體，提供 2 個 SO-DIMM 插槽供擴充。",
+    "type": "shared_spec"
+  },
+  {
+    "query": "AORUS MASTER 16 有幾個 Thunderbolt 接口？分別在哪一側？",
+    "keywords": ["Thunderbolt", "5", "4"],
+    "answer": "AORUS MASTER 16 共有兩個 Thunderbolt 接口：左側為 Thunderbolt 5（支援 USB4、DisplayPort 2.1、Power Delivery 3.0），右側為 Thunderbolt 4（支援 USB4、DisplayPort 1.4、Power Delivery 3.0）。",
+    "type": "shared_spec"
+  },
+  {
+    "query": "BZH 和 BXH 的 GPU 功耗（TDP）一樣嗎？差異在哪裡？",
+    "keywords": ["175W", "140W", "BZH", "BXH"],
+    "answer": "不一樣。BZH 搭載 RTX 5090 Laptop GPU，最大圖形功耗為 175W；BXH 搭載 RTX 5070 Ti Laptop GPU，最大圖形功耗為 140W，兩者相差 35W。",
+    "type": "gpu_comparison"
+  },
+  {
+    "query": "What are the keyboard, audio, and webcam specs of the AORUS MASTER 16?",
+    "keywords": ["RGB", "N-Key", "Dolby Atmos", "1080p", "Windows Hello"],
+    "answer": "The AORUS MASTER 16 features a 3-zone RGB Backlit Keyboard with up to 1.7mm key travel and N-Key rollover. Audio includes 4x 2W speakers with Dolby Atmos and Smart Amp Technology. The webcam is FHD 1080p IR with built-in array microphone and supports Windows Hello Face Authentication.",
+    "type": "shared_spec"
+  },
+  {
+    "query": "What is the display panel type and refresh rate of AORUS MASTER 16?",
+    "keywords": ["OLED", "240Hz", "2560", "1600"],
+    "answer": "The AORUS MASTER 16 features a 16-inch 16:10 OLED WQXGA display with resolution 2560x1600, 240Hz refresh rate, 1ms response time, DCI-P3 100% color gamut, 500 nits peak brightness, and supports NVIDIA G-SYNC, Dolby Vision, and VESA DisplayHDR True Black 500.",
+    "type": "shared_spec"
+  },
+  {
+    "query": "What is the battery capacity of the AORUS MASTER 16?",
+    "keywords": ["99Wh", "Li Polymer"],
+    "answer": "The AORUS MASTER 16 is equipped with a Li Polymer 99Wh battery.",
+    "type": "shared_spec"
+  },
+  {
+    "query": "What storage options are available on the BXH model?",
+    "keywords": ["PCIe", "Gen5 M.2", "Gen4x4 M.2","4TB"],
+    "answer": "The AORUS MASTER 16 BXH offers one PCIe Gen5 M.2 slot and one PCIe Gen4x4 M.2 slot, supporting up to 4TB PCIe NVMe M.2 SSD storage.",
+    "type": "single_product"
+  },
+  {
+    "query": "Which model should I choose between BYH and BXH for gaming? What are the GPU differences?",
+    "keywords": ["5080", "5070", "16GB", "12GB"],
+    "answer": "For gaming, BYH is the better choice. BYH features the RTX 5080 Laptop GPU with 16GB GDDR7 and AI Boost at 1902MHz, while BXH has the RTX 5070 Ti Laptop GPU with 12GB GDDR7 and AI Boost at 1962MHz. BYH offers more VRAM and a higher-tier GPU, making it more suitable for demanding games.",
+    "type": "gpu_comparison"
+  }
+]

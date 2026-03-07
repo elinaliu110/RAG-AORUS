@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.Python
+*.egg-info/
+dist/
+build/
+.venv/
+.uv/
+
+# Models (too large for git — download separately)
+models/
+*.gguf
+*.bin
+
+# Embeddings cache (regenerate with vector_index.py --force)
+data/embeddings*.npy
+
+# Benchmark outputs (keep results/ PNGs/JSONs if desired)
+# results/  ← uncomment to exclude from git
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Env
+.env
+.env.local
