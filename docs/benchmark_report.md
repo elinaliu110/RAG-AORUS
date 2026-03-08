@@ -113,13 +113,7 @@ Q6 (*"What are the keyboard, audio, and webcam specs of the AORUS MASTER 16?"*) 
 
 ---
 
-### 3.6 Q3 SO-DIMM Universally Missed
-
-All models score **75%** on Q3, consistently missing the `SO-DIMM` keyword. The cause is that the `extracted` field in the System Memory chunk only retains `Up to 64GB DDR5 5600MHz`, discarding `2x SO-DIMM sockets for expansion`. **Proposed fix:** Update the chunk's `extracted` field to retain the SO-DIMM slot information.
-
----
-
-### 3.7 TTFT Pattern Analysis
+### 3.6 TTFT Pattern Analysis
 
 All models show a **TTFT minimum at Q2** (15,000–35,000 ms): Q2 queries a specific model's GPU, which is directly matched by the key filter and returned without embedding search — validating the effectiveness of the key filter fast path design.
 
