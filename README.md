@@ -60,7 +60,7 @@ aorus-rag/
 ### 1. Clone & Install
 
 ```bash
-git clone https://github.com/<your-username>/aorus-rag.git
+git clone https://github.com/elinaliu110/RAG-AORUS.git
 cd aorus-rag
 uv sync
 ```
@@ -77,6 +77,8 @@ uv run python scripts/download_model.py --model llama-3.2-3b-q4
 # List all available models
 uv run python scripts/download_model.py --list
 ```
+
+### 2. 
 
 ### 3. Build the Vector Index
 
@@ -100,9 +102,7 @@ uv run python src/run_main.py \
 **Example queries:**
 ```
 >>> AORUS MASTER 16 支援哪些作業系統？
->>> What wireless connectivity does the AORUS MASTER 16 support?
->>> BZH 和 BXH 的 GPU 功耗差異在哪裡？
->>> Which model should I choose between BYH and BXH for gaming?
+>>> What is the AORUS MASTER 16 BXH battery capacity?
 ```
 
 ### 5. Run Benchmark
