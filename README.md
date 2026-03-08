@@ -1,19 +1,16 @@
 # AORUS MASTER 16 — AI Hardware Spec Assistant (RAG)
 
+A **RAG system** for answering GIGABYTE AORUS MASTER 16 AM6H product specifications.
+
 >  [Benchmark Report](docs/benchmark_report_en.md)
-
-A **pure Python RAG system** for answering GIGABYTE AORUS MASTER 16 AM6H product specifications.
-Designed for consumer-grade laptops with ≤ 4 GB VRAM, with no dependency on LangChain or LlamaIndex.
-
 ---
 
 ## Key Features
 
 - **Bilingual queries** — Traditional Chinese × English mixed input supported
-- **Pure Python RAG** — No LangChain / LlamaIndex; custom Chunking, Retrieval, Generation
+- **Python RAG** — custom Chunking, Retrieval, Generation
 - **Dual-path retrieval** — Key filter (exact) + Vector search (semantic), minimising latency
 - **Streaming output** — Real-time token streaming with TTFT / TPS measurement
-- **4 GB VRAM compliant** — All tested models fit within consumer GPU constraints
 - **Managed with `uv`** — Fast, reproducible Python environment
 
 ---
@@ -22,8 +19,8 @@ Designed for consumer-grade laptops with ≤ 4 GB VRAM, with no dependency on La
 
 ```
 aorus-rag/
-├── README.md                      # This file (English)
-├── README_ZH.md                   # 繁體中文說明
+├── README.md                      # English
+├── README_ZH.md                   # Traditional Chinese
 ├── pyproject.toml                 # uv environment & dependencies
 ├── .gitignore
 │
@@ -38,17 +35,17 @@ aorus-rag/
 │   ├── specs.csv                  # Raw AORUS MASTER 16 specification sheet
 │   ├── chunks.json                # Bilingual chunks (auto-generated)
 │   ├── embeddings.npy             # Embedding cache (auto-generated, gitignored)
-│   └── benchmark_cases.json       # Evaluation test cases (10 queries)
+│   └── benchmark_cases.json       # Evaluation test cases (10 queries: 5 TW + 5 EN)
 │
-├── models/                        # GGUF model files (gitignored — download separately)
+├── models/                        # GGUF model files (download separately)
 │   └── README.md
 │
-├── results/                       # Benchmark outputs (PNG charts + JSON)
+├── results/                       # Benchmark outputs (PNG charts + Ans JSON)
 │   └── README.md
 │
 ├── docs/
-│   ├── benchmark_report_en.md     # Full benchmark analysis (English)
-│   └── benchmark_report.md        # 完整評測報告（繁體中文）
+│   ├── benchmark_report.md     # benchmark analysis (English)
+│   └── benchmark_report_zh.md        # benchmark analysis（Traditional Chinese）
 │
 └── scripts/
     └── download_model.py          # GGUF model download helper
