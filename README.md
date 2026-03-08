@@ -17,7 +17,7 @@ A **RAG system** for answering GIGABYTE AORUS MASTER 16 AM6H product specificati
 
 ```
 aorus-rag/
-├── README.md                      # English
+├── README.md                      # 
 ├── README_ZH.md                   # Traditional Chinese
 ├── pyproject.toml                 # uv environment & dependencies
 ├── .gitignore
@@ -31,18 +31,18 @@ aorus-rag/
 │
 ├── data/
 │   ├── specs.csv                  # Raw AORUS MASTER 16 specification sheet
-│   ├── chunks.json                # Bilingual chunks (auto-generated)
-│   ├── embeddings.npy             # Embedding cache (auto-generated, gitignored)
+│   ├── chunks.json                # Bilingual chunks
+│   ├── embeddings.npy             # Embedding cache
 │   └── benchmark_cases.json       # Evaluation test cases (10 queries: 5 TW + 5 EN)
 │
-├── models/                        # GGUF model files (download separately)
+├── models/                        # GGUF model files
 │   └── README.md
 │
 ├── results/                       # Benchmark outputs (PNG charts + Ans JSON)
 │   └── README.md
 │
 ├── docs/
-│   ├── benchmark_report.md     # benchmark analysis (English)
+│   ├── benchmark_report.md     # benchmark analysis
 │   └── benchmark_report_zh.md        # benchmark analysis（Traditional Chinese）
 │
 └── scripts/
