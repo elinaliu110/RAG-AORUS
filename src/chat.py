@@ -67,7 +67,7 @@ def main() -> None:
 
     print("\n" + "═" * 55)
     print("  AORUS MASTER 16 AI Spec Assistant")
-    print("  Type your question and press Enter. Type 'exit' or Ctrl+C to quit.")
+    print("  Type your question and press Enter. Type 'exit' to quit.")
     print("═" * 55)
 
     # ── Interactive loop ──────────────────────────────────
