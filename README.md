@@ -1,6 +1,6 @@
 # AORUS MASTER 16 — AI Hardware Spec Assistant (RAG)
 
-> 🇹🇼 [繁體中文版 README](README_ZH.md) | 📊 [Benchmark Report](docs/benchmark_report_en.md)
+>  [Benchmark Report](docs/benchmark_report_en.md)
 
 A **pure Python RAG system** for answering GIGABYTE AORUS MASTER 16 AM6H product specifications.
 Designed for consumer-grade laptops with ≤ 4 GB VRAM, with no dependency on LangChain or LlamaIndex.
