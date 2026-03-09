@@ -51,7 +51,7 @@ aorus-rag/
 | Python | ≥ 3.11 |
 | GPU | NVIDIA GPU (VRAM ≥ 4 GB; Colab T4 works) |
 | CUDA | 12.x (required by vLLM) |
-| Package manager | `uv` (recommended) or `pip` |
+| Package manager | `uv` |
 
 > **Note: vLLM only supports Linux + NVIDIA GPU.** It cannot run on local Windows/macOS. Please use Google Colab or a Linux GPU server.
 
@@ -194,7 +194,7 @@ Output files in `results/`:
 
 ### 3B Models Results
 
-| Model | Hit Rate | Avg TTFT | Avg TPS | Model VRAM Δ | Loaded VRAM Δ | 4GB Ready |
+| Model | Hit Rate | Avg TTFT | Avg TPS | Model VRAM Δ | Inference VRAM Δ | 4GB Ready |
 |-------|:--------:|:--------:|:-------:|:------------:|:------------:|:---------:|
 | **AMead10 Llama-3.2-3B** | **84.0%** | 269 ms | 36.1 tok/s | 3,492 MB | 4,059 MB | ✅ |
 | casperhansen Llama-3.2-3B | 81.5% | **241 ms** | **37.9 tok/s** | 3,540 MB | 4,107 MB | ❌ +11 MB |
@@ -202,11 +202,11 @@ Output files in `results/`:
 
 ### 1B Models Results
 
-| Model | Hit Rate | Avg TTFT | Avg TPS | Model VRAM Δ | 4GB Ready |
+| Model | Hit Rate | Avg TTFT | Avg TPS | Model VRAM Δ | Inference VRAM Δ | 4GB Ready |
 |-------|:--------:|:--------:|:-------:|:------------:|:---------:|
-| Qwen2.5-1.5B | 53.7% | 202 ms | 36.5 tok/s | 3,462 MB | ✅ |
-| casperhansen Llama-3.2-1B | 40.3% | **132 ms** | 56.6 tok/s | **3,398 MB** | ✅ |
-| AMead10 Llama-3.2-1B | 32.0% | 133 ms | **57.4 tok/s** | 3,446 MB | ✅ |
+| Qwen2.5-1.5B | 53.7% | 202 ms | 36.5 tok/s | 3,462 MB | 4,015 MB | ✅ |
+| casperhansen Llama-3.2-1B | 40.3% | **132 ms** | 56.6 tok/s | **3,398 MB** | 3,965 MB | ✅ |
+| AMead10 Llama-3.2-1B | 32.0% | 133 ms | **57.4 tok/s** | 3,446 MB | 4,032 MB | ✅ |
 
 > **Recommended: `AMead10/Llama-3.2-3B-Instruct-AWQ`** — highest accuracy (84%), strictly 4 GB compliant.
 
@@ -220,8 +220,6 @@ Output files in `results/`:
 ## Script Reference
 
 ### `benchmark.py`
-
-Fully automated benchmark runner — **no manual vLLM server management needed**.
 
 | Argument | Default | Description |
 |----------|---------|-------------|
@@ -269,7 +267,7 @@ To rebuild the cache with a different model:
 
 The test GPU is a Tesla T4 (15 GB), but the evaluation criterion follows the interview requirement: **consumer-grade 4 GB VRAM**.
 
-Assessment method: model VRAM delta (Δ) after loading ≤ 4,096 MB.
+Assessment method: Inference VRAM after loading ≤ 4,096 MB.
 
 | Model | Params | Model VRAM Δ | Inference VRAM | 4GB Ready |
 |-------|:------:|:------------:|:--------------:|:---------:|
