@@ -180,7 +180,7 @@ Output files in `results/`:
 ## Models Tested
 
 | Model Family | Params | Quant | HuggingFace ID | Access |
-|-------------|:------:|:-----:|----------------|:------:|:---------:|
+| :--- | :---: | :---: | :--- | :---: |
 | Llama-3.2-Instruct (AMead10) | 3B | AWQ INT4 | `AMead10/Llama-3.2-3B-Instruct-AWQ` | Gated |
 | Llama-3.2-Instruct (casper) | 3B | AWQ INT4 | `casperhansen/llama-3.2-3b-instruct-awq` | Gated |
 | Qwen2.5-Instruct | 3B | AWQ INT4 | `Qwen/Qwen2.5-3B-Instruct-AWQ` | Open |
