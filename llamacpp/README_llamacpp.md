@@ -1,18 +1,8 @@
-# AI Hardware Spec Assistant (RAG) - AORUS MASTER 16
+# AORUS MASTER 16 — AI Spec Assistant (llama-cpp CPU Edition)
 
-A **RAG system** for answering GIGABYTE AORUS MASTER 16 AM6H product specifications.
-
+This project implements a RAG-based spec Q&A system using llama-cpp quantized models on CPU (Google Colab).
 ---
-
-## Key Features
-
-- **Bilingual queries** — Traditional Chinese × English mixed input supported
-- **Python RAG** — custom Chunking, Retrieval, Generation
-- **Streaming output** — Real-time token streaming with TTFT / TPS measurement
-- **Managed with `uv`** — Fast, reproducible Python environment
-
----
-
+<!-- 
 ## Project Structure
 
 ```
@@ -46,7 +36,7 @@ aorus-rag/
 │
 └── scripts/
     └── download_model.py       # GGUF model download helper
-```
+``` -->
 
 ---
 
@@ -61,6 +51,8 @@ aorus-rag/
 ```bash
 !git clone https://github.com/elinaliu110/RAG-AORUS.git
 %cd aorus-rag
+
+# Install all project dependencies from pyproject_vllm.toml
 !uv sync
 ```
 
@@ -77,7 +69,15 @@ aorus-rag/
 !uv run python scripts/download_model.py --list
 ```
 
-### 3. Build the Vector Index
+### 3. Create Chunks (if not yet done)
+
+```bash
+!uv run python src/chunk_create.py \
+    --input  data/specs.csv \
+    --output data/chunks.json
+```
+
+### 4. Build the Vector Index
 
 ```bash
 !uv run python src/vector_index.py \
@@ -85,29 +85,13 @@ aorus-rag/
     --emb    data/embeddings.npy
 ```
 
-> **Note:** If you regenerate `chunks.json` via `chunk_create.py`, always rebuild embeddings with `--force`.
-
-### 4. Interactive Q&A
+### 5. Interactive Q&A
 
 ```bash
-!uv run python src/chat.py \
+!uv run python src/chat_llamacpp.py \
     --model  models/Llama-3.2-3B-Instruct-Q5_K_M.gguf \
     --chunks data/chunks.json \
     --emb    data/embeddings.npy
-```
-
-
-### 4. Interactive Q&A vllm
-
-```bash
-!uv run python src/chat.py \
-    --model AMead10/Llama-3.2-3B-Instruct-AWQ \
-    --gpu-util 0.189 \
-    --max-model-len 1024 \
-    --enforce-eager \
-    --chunks data/chunks.json \
-    --emb data/embeddings.npy
-
 ```
 
 **Example queries:**
@@ -116,10 +100,10 @@ aorus-rag/
 >>> What is the AORUS MASTER 16 BXH battery capacity?
 ```
 
-### 5. Run Benchmark
+### 6. Run Benchmark
 
 ```bash
-!uv run python src/benchmark.py \
+!uv run python src/benchmark_vllm.py \
     --model  models/Llama-3.2-3B-Instruct-Q5_K_M.gguf \
     --chunks data/chunks.json \
     --emb    data/embeddings.npy \
@@ -127,55 +111,6 @@ aorus-rag/
     --out    results/benchmark_results_Llama-Q5.json
 ```
 
-
-### 5. Run Benchmark vllm
-
-```bash
-!uv run python src/benchmark_vllm.py \
-    --chunks data/chunks.json \
-    --emb data/embeddings.npy \
-    --cases data/benchmark_cases.json \
-    --models casperhansen/llama-3.2-1b-instruct-awq,Qwen/Qwen2.5-1.5B-Instruct-AWQ,AMead10/Llama-3.2-1B-Instruct-AWQ \
-    --gpu-util 0.187 \
-    --max-model-len 1024 \
-    --enforce-eager \
-    --out-dir results_4gb
-```
-
----
-
-## System Architecture
-
-```
-        User Query (ZH / EN / Mixed)
-                   │
-                   ▼
-┌──────────────────────────────────────────┐
-│  Stage C-1 · Filter Extraction           │
-│  ├─ extract_product_filter()             │  → BZH / BYH / BXH / None
-│  └─ extract_key_filter()                 │  → spec key alias match
-└──────────────────┬───────────────────────┘
-                   │
-         ┌─────────▼──────────┐
-         │  Key Filter hit?   │
-         └──┬─────────────┬───┘
-         Yes│             │No
-            ▼             ▼
-    Exact chunk       Vector Search
-    retrieval         (multilingual-MiniLM cosine)
-    (no encoding)
-            │             │
-            └──────┬──────┘
-                   ▼
-        build_context()   ← bilingual text, max 1400 tokens
-                   │
-                   ▼
-        llama.cpp GGUF inference
-        Streaming · TTFT / TPS measurement
-                   │
-                   ▼
-            Answer (ZH or EN)
-```
 ## Model Benchmark Summary (CPU)
 
 All tests run on CPU.
@@ -191,7 +126,7 @@ All tests run on CPU.
 
 **Recommended:** `Llama-3.2-3B-Instruct-Q5_K_M` with highest accuracy, RAM well within 4 GB limit.
 
->  Full analysis: [docs/benchmark_report.md](docs/benchmark_report.md)
+>  Full analysis: [docs/benchmark_report_llamacpp.md](docs/benchmark_report_llamacpp.md)
 
 ---
 
@@ -217,13 +152,3 @@ All tests run on CPU.
 | `matplotlib` | Benchmark chart generation |
 
 ---
-
-## Notes
-
-- **No GPU data available** in current benchmarks — all results are CPU-only.
-  GPU inference is expected to reduce TTFT to ~5–15 seconds.
-- **`data/embeddings.npy`** is gitignored. Rebuild after any chunk changes:
-  ```bash
-  uv run python src/vector_index.py --chunks data/chunks.json --emb data/embeddings.npy --force
-  ```
-- **`models/`** is gitignored. Use `scripts/download_model.py` to fetch GGUF files.
