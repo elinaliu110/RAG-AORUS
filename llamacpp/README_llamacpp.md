@@ -48,7 +48,7 @@ aorus-rag/
 ### 1. Clone & Install
 
 ```bash
-!git clone https://github.com/elinaliu110/RAG-AORUS.git
+!git clone https://github.com/elinaliu110/aorus-rag.git
 %cd aorus-rag
 
 # Install all project dependencies from pyproject_vllm.toml
@@ -125,7 +125,7 @@ All tests run on CPU.
 
 **Recommended:** `Llama-3.2-3B-Instruct-Q5_K_M` with highest accuracy.
 
->  Full analysis: [docs/benchmark_report_llamacpp.md](docs/benchmark_report_llamacpp.md)
+>  Full analysis: [docs/benchmark_report_llamacpp.md](../docs/benchmark_report_llamacpp.md)
 
 ---
 
