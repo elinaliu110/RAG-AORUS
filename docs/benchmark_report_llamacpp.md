@@ -147,4 +147,4 @@ CPU utilization stays consistently at **80–100%** across all queries, indicati
 
 ## 5. Raw Results
 
-All benchmark PNG charts and raw JSON result files are available in the [`results/`](../results/) directory.
+All benchmark JSON files and PNG charts are available in the [`results/llama-cpp-cpu/`](../results/llama-cpp-cpu/) directory.
