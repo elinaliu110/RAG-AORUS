@@ -39,8 +39,6 @@ aorus-rag/
     └── download_model.py       # GGUF model download helper
 ``` -->
 
----
-
 ## Quick Start
 
 ### Prerequisites
