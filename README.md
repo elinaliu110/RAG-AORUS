@@ -209,7 +209,9 @@ Output files in `results/`:
 | AMead10 Llama-3.2-1B | 32.0% | 133 ms | **57.4 tok/s** | 3,446 MB | ✅ |
 
 > **Recommended: `AMead10/Llama-3.2-3B-Instruct-AWQ`** — highest accuracy (84%), strictly 4 GB compliant.
+
 > **1B models are not recommended:** Overall accuracy of 32–40% is not acceptable.
+
 > Full per-query analysis → [docs/benchmark_report.md](docs/benchmark_report.md)
 
 ---
