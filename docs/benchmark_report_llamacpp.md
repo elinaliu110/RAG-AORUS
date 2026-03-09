@@ -137,11 +137,10 @@ CPU utilization stays consistently at **80–100%** across all queries, indicati
 
 ### Next Steps for Improvement
 
-1. **Merge Keyboard/Audio/Webcam into one chunk** → Resolves Q6 incomplete retrieval; expected improvement to 80%+
-2. **Fix SO-DIMM omission** → Update System Memory chunk `extracted` field; Q3 can reach 100%
-3. **Add GPU inference benchmarks** → CPU-only data currently; GPU expected to reduce TTFT to ~5–15 s
-4. **Dynamic top_k** → Increase to top_k=8 for detected multi-field queries
-5. **Upgrade to multilingual-e5-base** → Better recall for English multi-keyword queries vs MiniLM
+1. **Merge Keyboard/Audio/Webcam into one chunk** → Resolves Q6 incomplete retrieval.
+2. **Add GPU inference benchmarks** → GPU expected to reduce TTFT to ~5–15 s
+3. **Dynamic top_k** → Increase to top_k=8 for detected multi-field queries
+4. **Upgrade to multilingual-e5-base** → Better recall for English multi-keyword queries vs MiniLM
 
 ---
 
