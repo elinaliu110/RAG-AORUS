@@ -25,7 +25,6 @@ aorus-rag/
 │
 ├── results/                        # Benchmark output
 └── docs/
-    ├── benchmark_report.md
     └── benchmark_report.md
 ```
 
@@ -41,7 +40,7 @@ aorus-rag/
 | 4 GB Constraint Criterion | Model VRAM Δ ≤ 4,096 MB |
 | Embedding Model | paraphrase-multilingual-MiniLM-L12-v2 |
 | Chunk Version | chunks.json (bilingual, 55 chunks) |
-| Benchmark Cases | benchmark.json (10 queries) |
+| Benchmark Cases | benchmark_cases.json (10 queries) |
 
 ---
 
@@ -54,7 +53,7 @@ aorus-rag/
 | CUDA | 12.x (required by vLLM) |
 | Package manager | `uv` (recommended) or `pip` |
 
-> **Note: vLLM only supports Linux + NVIDIA GPU.** It cannot run on local Windows/macOS. Use Google Colab or a Linux GPU server.
+> **Note: vLLM only supports Linux + NVIDIA GPU.** It cannot run on local Windows/macOS. Please use Google Colab or a Linux GPU server.
 
 ---
 
@@ -73,7 +72,7 @@ Colab menu → **Runtime** → **Change runtime type** → select **T4 GPU** (or
 
 ### 2. HuggingFace Token & Model Access
 
-Some models (Llama family) are **gated** — you must:
+Some models (Llama family) are **gated**, you must:
 
 1. Create a **Read** token at [huggingface.co/settings/tokens](https://huggingface.co/settings/tokens)
 2. Visit each model page and accept the **User Agreement**:
@@ -84,7 +83,7 @@ Some models (Llama family) are **gated** — you must:
 
 3. Set your token in Colab (pick one method):
 
-```bash
+```python
 # Option A: Login via huggingface_hub (recommended — token won't appear in output)
 from huggingface_hub import login
 login()  # Opens an input prompt; paste your token there
